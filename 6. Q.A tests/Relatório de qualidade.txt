@@ -1,0 +1,54 @@
+Revisão de QA - "Cartório da EBAC"
+Autor: Bruna Dalmagro
+Data: 17/07/23
+
+Resumo
+Esta revisão de QA aborda o código-fonte do programa "Cartório da EBAC", que permite realizar o cadastro, consulta e exclusão de registros. O objetivo da revisão é identificar possíveis problemas, melhorias e boas práticas no código.
+
+Observações Gerais
+O código está bem estruturado e organizado.
+Foram utilizadas bibliotecas padrão do C para as funcionalidades necessárias.
+O código apresenta comentários explicativos que facilitam a compreensão.
+
+
+● Login:
+○ Acesso de admin: ok
+○ Recusa de acesso: ok 
+
+● Função Menu:
+○ Chamada de todas as funções (inserir), (consulta) e (deletar): ok 
+
+
+● Função inserir:
+○ Criação de banco: ok
+○ Inserção de dados: ok
+○ Encerramento de função e retorno ao menu: ok
+
+
+● Função consultar:
+○ Consulta ao banco: ok
+○ Retorno ao usuário: ok
+○ Retorno ao Menu: ok
+
+● Função deletar:
+○ Solicitação de “cpf”: ok
+○ Deletar no banco: ok
+
+Recomendações e melhorias:
+    • Remover a dependência da biblioteca <conio.h>: A função getch() utilizada para esconder a senha durante o login não é uma função padrão do C e pode não estar disponível em todos os compiladores. É recomendado utilizar uma abordagem alternativa para esconder a senha, como o uso de asteriscos ou a desabilitação do eco do terminal.
+
+    • Melhorar a validação do CPF: A validação atual do CPF verifica se todos os caracteres são dígitos, mas não verifica a validade do número em si. Recomenda-se implementar uma função de validação de CPF mais robusta para garantir que o CPF informado seja válido.
+
+    • Utilizar constantes para tamanhos fixos de strings: Em várias partes do código, são utilizados números fixos para definir os tamanhos das strings. É recomendado utilizar constantes ou macros para definir esses tamanhos e evitar números mágicos no código.
+
+    • Verificar retorno de funções de manipulação de arquivos: Ao abrir, fechar ou manipular arquivos, é importante verificar se as operações foram realizadas com sucesso. Recomenda-se adicionar verificações de erro para garantir que as operações de arquivo sejam bem-sucedidas.
+
+    • Tratar possíveis erros de entrada do usuário: Ao solicitar entradas do usuário, é importante validar e tratar possíveis erros. Por exemplo, ao ler strings com fgets(), pode ser necessária a remoção do caractere de nova linha da string. Sempre limpar o buffer de entrada após a leitura de dados usando getchar().
+
+    • Implementar tratamento de erros no login: No caso de falha no login, o programa atualmente apenas exibe uma mensagem de erro. Seria útil fornecer mais informações ao usuário sobre o motivo da falha no login, como "Nome de usuário ou senha incorretos".
+
+
+Resultado: (4/5)
+
+O código está bem estruturado e apresenta bom funcionamento geral. 
+No entanto, foram identificadas algumas oportunidades de melhoria e recomendações que podem ser implementadas para aprimorar o programa. Recomenda-se revisar as recomendações e fazer as melhorias necessárias para garantir a qualidade e robustez do código. 
